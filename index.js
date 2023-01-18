@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const _ = require("lodash");
 const getAIMove = require("./utils.js");
-const cors = require("cors");
+// const cors = require("cors");
 
 // Enable CORS for all routes
-app.use(cors());
+// app.use(cors());
 
 const getDifferent = (Array1, Array2) => {
   for (let i = 0; i < Array1.length; i++) {
