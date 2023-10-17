@@ -5,6 +5,8 @@ const Redis = require("ioredis");
 const crypto = require("crypto");
 const app = express();
 const server = http.createServer(app);
+require("dotenv").config();
+
 const io = socketIo(server, {
   cors: {
     origin: "*",
@@ -13,9 +15,7 @@ const io = socketIo(server, {
 });
 const cors = require("cors");
 
-const redis = new Redis(
-  "redis://default:dec3ce3af6424e0d8a24464d4bc71644@us1-decent-marlin-41102.upstash.io:41102"
-);
+const redis = new Redis(process.env.REDIS_URL);
 
 app.use(cors());
 app.get("/create-game", async (req, res) => {
